@@ -1,0 +1,17 @@
+{
+  "name": "front-desk",
+  "version": "1.0.0",
+  "description": "Voice appointment booking with OpenAI GPT-Live and a Responses backend",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22.6" },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node test/smoke.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}

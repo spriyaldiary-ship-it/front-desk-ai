@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Front Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Front Desk · voice booking demo</p>
+        <h1 id="biz-name">Loading…</h1>
+        <p class="muted" id="biz-meta"></p>
+      </div>
+      <button class="ghost" id="reset">Reset demo calendar</button>
+    </header>
+
+    <main class="grid">
+      <section class="card call" aria-labelledby="call-h">
+        <div class="call-head">
+          <h2 id="call-h">Call the front desk</h2>
+          <span class="pill" id="state-pill" data-state="idle">Idle</span>
+        </div>
+
+        <div class="controls">
+          <button class="primary" id="start">🎙 Start call</button>
+          <button id="mute" disabled>Mute mic</button>
+          <button class="danger" id="end" disabled>End call</button>
+          <span class="timer" id="timer" aria-label="Call duration">00:00</span>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite">Press Start and allow microphone access.</p>
+        <div class="mic-help" id="mic-help" hidden></div>
+
+        <p class="hint">Try: “I need a haircut Thursday afternoon” → “Actually, make it Friday morning with Maya” → “Yes, book it.” You can talk over the assistant at any time.</p>
+
+        <h3>Conversation</h3>
+        <div class="transcript" id="transcript" aria-live="polite"></div>
+
+        <h3>Backend activity</h3>
+        <ol class="activity" id="activity"></ol>
+        <audio id="remote-audio" autoplay></audio>
+      </section>
+
+      <section class="card" aria-labelledby="avail-h">
+        <div class="call-head">
+          <h2 id="avail-h">Available times</h2>
+          <select id="service" aria-label="Service"></select>
+        </div>
+        <div class="days" id="days" role="tablist"></div>
+        <div class="slots" id="slots"></div>
+        <p class="legend"><span class="chip sample">10:30 AM</span> open <span class="chip sample offered">2 PM</span> just offered <span class="chip sample held">3 PM</span> on hold</p>
+
+        <h2 class="mt">Pending hold</h2>
+        <div id="holds" class="list"></div>
+
+        <h2 class="mt">Confirmed bookings</h2>
+        <div id="bookings" class="list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
